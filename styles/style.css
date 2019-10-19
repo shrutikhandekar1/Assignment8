@@ -1,0 +1,60 @@
+label {
+    display: inline-block; 
+    width: 210px; 
+    text-align: right;
+    padding-right: 50px;
+}
+
+label:last-of-type{
+    padding-bottom: 50px;
+}
+
+form{
+    margin-top: 30px; 
+}
+
+input:last-of-type {
+    display: inline-block;
+    margin-left: 210px;
+    padding: 0 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+span {
+    color: red;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+#employees {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+    margin: 0 auto;
+}
+  
+  #employees td, #employees th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .delbtn{
+    width: 100px;
+    height: 30px;
+    margin: 0 20px;
+    background-color: rgb(78, 78, 163);
+    color: white;
+  }
+
+  #employees tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #employees tr:hover {background-color: #ddd;}
+  
+  #employees thead {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgb(77, 79, 168);
+    color: white;
+  }
