@@ -19,8 +19,6 @@ var employeeName =      $("name");
 var employeeTitle =     $("title");
 var employeeExtension = $("extension");
 
-//window.console.log(employeeTable);
-
 var createTable = function(tableHeadings) {
     "use strict";
     table = document.createElement('table');
@@ -40,15 +38,8 @@ var createTable = function(tableHeadings) {
     tbody = document.createElement("tbody");
 };
 
-var entry = function() {
-
-};
-
 var addRow = function (tableData) {
     "use strict";
-
-       
-    //tableData.forEach(function (dataEntry)
     for (var x=0;x<tableData.length;x++) {
         var td;
         var newRow = table.insertRow(-1);
@@ -93,7 +84,6 @@ var deleteEmployeeRow = function(rowIndex)  {
 
 var updateEmployeeCount = function()  {
     "use strict";
-    //console.log(employeeList.length);
     var employeeCount = $("employeeCount");
     employeeCount.innerHTML = "Showing " + employeeList.length + " employees";
 };
@@ -105,11 +95,10 @@ var validateFields = function()  {
     var span = $('errorMsg');
 
     var spanList = document.getElementsByTagName("span");
-    //console.log(spanList);
-
-    for(var i=0;i<spanList.length;i++) {
-        //console.log(spanList[i]);
-        employeeForm.removeChild(spanList[i]);
+    var tempLength = spanList.length;
+    var tempArray = [];
+    while(spanList.length > 0) {
+        employeeForm.removeChild(spanList[0]);
     }
     
     //Check if Employee name is populated
@@ -122,8 +111,7 @@ var validateFields = function()  {
 
     //Check if Employee name is valid alphanumeric characters
     else if(!/^[a-zA-Z]+$/.test(employeeName.value)){
-        //console.log("here");
-        msg = "<span id='errorMsg'>Please use alphanumeric characters for Employee name</span>";
+         msg = "<span id='errorMsg'>Please use alphanumeric characters for Employee name</span>";
         if(employeeName.nextElementSibling.tagName !== "SPAN")
             employeeName.insertAdjacentHTML('afterend', msg);
     }
@@ -131,7 +119,6 @@ var validateFields = function()  {
     //Check if Employee title is populated
     if(employeeTitle.value == "" || employeeTitle.value == null) {
         msg = "<span id='errorMsg'>Employee title cannot be blank</span>";
-        console.log(employeeTitle.nextElementSibling.tagName);
         if(employeeTitle.nextElementSibling.tagName !== "SPAN")
             employeeTitle.insertAdjacentHTML('afterend', msg);
     }
@@ -172,15 +159,11 @@ var validateFields = function()  {
         addEmployee([employeeName.value,employeeTitle.value,employeeExtension.value]);
         return true;
     }
-    
 };
 
 
 createTable(headings);
-addRow(employeeList);
 addEmployeeBtn.addEventListener("click", validateFields);
-console.log("1");
-
-
+addEmployeeBtn.addEventListener("click", addRow(employeeList));
 
 
